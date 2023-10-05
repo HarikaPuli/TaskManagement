@@ -1,5 +1,6 @@
 
 import { useState } from "react"
+import TodoItem from "./TodoItem";
 
 export default function Todo(){
     const[todo, setTodo]=useState("");
@@ -8,6 +9,7 @@ export default function Todo(){
     function handleSubmit(e){
         e.preventDefault();
         setTodos([...todos,todo]);
+        setTodo("");   //to make input field empty after entering data
     }
     return(
         <div>
@@ -18,6 +20,9 @@ export default function Todo(){
              type="text"></input>
             <button type="submit">Add</button>
            </form>
+           {todos.map((item)=>(          //iterating items in array
+           <TodoItem key={item} item={item}/>        //sending item as props to todoitem component 
+           ))}
         </div>
     )
 }
