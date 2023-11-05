@@ -1,28 +1,14 @@
 
 import { useState } from "react"
-import TodoItem from "./TodoItem";
+import Form from "./Form";
+import TodoList from "./TodoList";
 
 export default function Todo(){
-    const[todo, setTodo]=useState("");
-    const[todos,setTodos]=useState([]);
-
-    function handleSubmit(e){
-        e.preventDefault();
-        setTodos([...todos,todo]);
-        setTodo("");   //to make input field empty after entering data
-    }
+    const [todos, setTodos] = useState([]);
     return(
         <div>
-           <form onSubmit={handleSubmit}>
-            <input 
-            onChange={(e)=>setTodo(e.target.value)}
-             value={todo} 
-             type="text"></input>
-            <button type="submit">Add</button>
-           </form>
-           {todos.map((item)=>(          //iterating items in array
-           <TodoItem key={item} item={item}/>        //sending item as props to todoitem component 
-           ))}
+           <Form todos={todos} setTodos={setTodos}/>
+           <TodoList todos={todos} setTodos={setTodos}/>
         </div>
     )
 }
