@@ -13,8 +13,6 @@ export default function Todo(){
            <Form todos={todos} setTodos={setTodos}/>
            <TodoList todos={todos} setTodos={setTodos}/>
            <Footer completedTasks={completedTasks} totalTasks={totalTasks} remainingTasks={remainingTasks} />
-
-          
         </div>
     )
 }
