@@ -27,7 +27,7 @@ export default function TodoItem({item, todos, setTodos})      //accepting item 
     // }
     function clickonItem(name){
        setTodos(todos.map((todo=> todo.name === name ? {...todo, taskDone:!todo.taskDone}:todo)))
-       console.log(todos);
+       
     }
     
     const ItemStyling = item.taskDone ? styles.completed : ""
